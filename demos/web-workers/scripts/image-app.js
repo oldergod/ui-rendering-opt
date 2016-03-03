@@ -1,4 +1,4 @@
-(function(){
+(function() {
   // http://stackoverflow.com/questions/10906734/how-to-upload-image-into-html5-canvas
   var original;
   var imageLoader = document.querySelector('#imageLoader');
@@ -6,14 +6,14 @@
   var canvas = document.querySelector('#image');
   var ctx = canvas.getContext('2d');
 
-  function handleImage(e){
+  function handleImage(e) {
     var reader = new FileReader();
-    reader.onload = function(event){
+    reader.onload = function(event) {
       var img = new Image();
-      img.onload = function(){
+      img.onload = function() {
         canvas.width = img.width;
         canvas.height = img.height;
-        ctx.drawImage(img,0,0);
+        ctx.drawImage(img, 0, 0);
         original = ctx.getImageData(0, 0, canvas.width, canvas.height);
       }
       img.src = event.target.result;

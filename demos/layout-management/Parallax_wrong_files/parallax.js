@@ -1,13 +1,13 @@
 // shim layer with setTimeout fallback
-window.requestAnimFrame = (function(){
-  return  window.requestAnimationFrame       ||
-          window.webkitRequestAnimationFrame ||
-          window.mozRequestAnimationFrame    ||
-          window.oRequestAnimationFrame      ||
-          window.msRequestAnimationFrame     ||
-          function( callback ){
-            window.setTimeout(callback, 1000 / 60);
-          };
+window.requestAnimFrame = (function() {
+  return window.requestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    window.oRequestAnimationFrame ||
+    window.msRequestAnimationFrame ||
+    function(callback) {
+      window.setTimeout(callback, 1000 / 60);
+    };
 })();
 
 (function(win, d) {
@@ -29,20 +29,20 @@ window.requestAnimFrame = (function(){
   var ticking = false;
   var lastScrollY = 0;
 
-  function onResize () {
+  function onResize() {
     updateElements(win.pageYOffset);
   }
 
-  function onScroll (evt) {
+  function onScroll(evt) {
 
-    if(!ticking) {
+    if (!ticking) {
       ticking = true;
       requestAnimFrame(updateElements);
       lastScrollY = win.pageYOffset;
     }
   }
 
-  function updateElements () {
+  function updateElements() {
 
     var relativeY = lastScrollY / 3000;
 
