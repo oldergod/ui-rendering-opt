@@ -7,6 +7,8 @@
   border: 1px solid #888;
   background: #F4F4F4;
   border-radius: 5px;
+
+  will-change: transform;
   
   transition: border-radius 1s ease-out;
 }
