@@ -11,7 +11,6 @@ for (var b = 0; b < boxes.length; b++) {
 }
 
 animateButton.addEventListener('click', function() {
-
   for (var b = 0; b < boxes.length; b++) {
     boxes[b].classList.toggle('middle');
 
@@ -22,7 +21,7 @@ animateButton.addEventListener('click', function() {
 
   animating = boxes[0].classList.contains('middle');
 
-  webkitRequestAnimationFrame(update);
+  requestAnimationFrame(update);
 });
 
 function update() {
@@ -35,11 +34,10 @@ function update() {
     boxes[b].style.webkitTransform = makeTransform(b);
   }
 
-  webkitRequestAnimationFrame(update);
+  requestAnimationFrame(update);
 }
 
 function makeTransform(b, zeroed) {
-
   var left = Math.sin(time + b * 0.05) * 200 + 'px';
   var top = Math.cos(time + b * 0.05) * 200 + 'px';
 
@@ -51,5 +49,4 @@ function makeTransform(b, zeroed) {
   return isolated ?
     'translate3d(' + left + ', ' + top + ', 0)' :
     'translate(' + left + ', ' + top + ')';
-
 }
