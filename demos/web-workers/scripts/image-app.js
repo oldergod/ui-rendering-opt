@@ -53,7 +53,7 @@
       imageData.data[i * 4 + 3] = pixel[3];
     }
     toggleButtonsAbledness();
-    return ctx.putImageData(imageData, 0, 0);
+    ctx.putImageData(imageData, 0, 0);
   };
 
   function revertImage() {
