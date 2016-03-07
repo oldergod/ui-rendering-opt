@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Side Nav</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  body {
+    padding: 0;
+    margin: 0;
+  }
+  
+  section {
+    display: block;
+  }
+  
+  .toolbar {
+    width: 30px;
+    height: 30px;
+    margin: 15px;
+    cursor: pointer;
+  }
+  
+  .side-nav {
+    position: fixed;
+    transition: 250ms;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  
+  .side-nav__open {
+    pointer-events: auto;
+  }
+  
+  .side-nav__open:before {
+    opacity: .7 !important;
+  }
+  
+  .side-nav__open * {
+    pointer-events: none;
+  }
+  
+  .side-nav:before {
+    background: #000;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: '';
+    opacity: 0;
+    transition: 250ms;
+  }
+  
+  .side-nav_menu {
+    position: fixed;
+    transition: 250ms;
+    transform: translateX(-150px);
+    width: 150px;
+    background: #FF00FF;
+    height: 100%;
+  }
+  
+  .side-nav_menu_visible {
+    transform: translateX(0);
+  }
+  
+  .content {
+    margin-left: 10px;
+  }
+  </style>
+</head>
+
+<body>
+  <section class="toolbar">
+    <div class="toolbar_side-nav-toggler">&#9776;</div>
+  </section>
+  <section class="side-nav">
+    <div class="side-nav_menu">
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+      </ul>
+    </div>
+  </section>
+  <section class="content">
+    <div>
+      <h1>Some text</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </div>
+  </section>
+  <script>
+  const sideNavToggler = document.querySelector('.toolbar_side-nav-toggler');
+  sideNavToggler.addEventListener('click', toggleSideNav);
+  document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('side-nav__open')) {
+      toggleSideNav();
+    }
+  });
+
+  function toggleSideNav() {
+    document.querySelector('.side-nav').classList.toggle('side-nav__open');
+    document.querySelector('.side-nav_menu').classList.toggle('side-nav_menu_visible');
+    e.preventDefault();
+    e.stopPropagation();
+  }
+  </script>
+</body>
+
+</html>
