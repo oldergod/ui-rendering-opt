@@ -101,10 +101,12 @@
   </section>
   <script>
   const sideNavToggler = document.querySelector('.toolbar_side-nav-toggler');
-  sideNavToggler.addEventListener('click', toggleSideNav);
+  sideNavToggler.addEventListener('click', () => {
+    requestAnimationFrame(toggleSideNav);
+  });
   document.addEventListener('click', (e) => {
     if (e.target.classList.contains('side-nav__open')) {
-      toggleSideNav();
+      requestAnimationFrame(toggleSideNav);
     }
   });
 
