@@ -5,14 +5,14 @@
     <title>Main Thread and JavaScript</title>
   </head>
   <body>
-    <button id="button">2秒処理実行</button>
+    <button id="button">3秒処理実行</button>
     <br/>
-    <img src="./trilogy.gif" />
+    <img src="./loading.gif" />
     <script>
       const button = document.getElementById('button');
       button.addEventListener('click', () => {
         const start = +new Date;
-        while (+new Date - start < 2000) {}
+        while (+new Date - start < 3000) {}
       });
     </script>
   </body>

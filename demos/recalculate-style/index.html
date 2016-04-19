@@ -12,7 +12,7 @@
   body {
     background: #ECECEC;
   }
-  
+
   main .box-container .box {
     display: inline-block;
     width: 40px;
@@ -23,11 +23,11 @@
     position: relative;
     will-change: transform;
   }
-  
+
   body.toggled main .box-container .box:nth-child(2n) {
     background: #777 !important;
   }
-  
+
   button {
     margin: 0 auto;
     padding: 20px;
@@ -46,21 +46,7 @@
     <div class="box-container">
     </div>
   </main>
-  <script>
-  var container = document.querySelector('.box-container');
-  var button = document.querySelector('button');
-
-  for (var i = 0; i < 3000; i++) {
-    var div = document.createElement('div');
-    div.classList.add('box');
-    div.index = i;
-    container.appendChild(div);
-  }
-
-  button.addEventListener('click', function() {
-    document.body.classList.toggle('toggled');
-  });
-  </script>
+  <script src="index.js"></script>
 </body>
 
 </html>
